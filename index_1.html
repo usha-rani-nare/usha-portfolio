@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nare Usha Rani | Backend-Focused Developer</title>
+<meta name="description" content="Portfolio of Nare Usha Rani, a backend-focused developer specializing in Java, Spring Boot, REST APIs, WebSocket communication, MySQL and modern full-stack development." />
+<meta name="keywords" content="Nare Usha Rani, Backend Developer, Java Developer, Spring Boot, REST API, MySQL, Full Stack Developer, WebSocket" />
+
+<meta property="og:title" content="Nare Usha Rani | Backend-Focused Developer" />
+<meta property="og:description" content="Backend-focused developer building real-time and database-driven applications with Java, Spring Boot, REST APIs and MySQL." />
+<meta property="og:type" content="website" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23121212'/%3E%3Ctext x='50' y='68' font-size='54' font-family='monospace' font-weight='700' fill='%231DB954' text-anchor='middle'%3E%3C/%3E%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.js"></script>
+
+<style>
+  :root {
+    --bg: #121212;
+    --bg-secondary: #181818;
+    --bg-card: #242424;
+    --accent: #1DB954;
+    --accent-hover: #1ED760;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B3B3B3;
+    --border: rgba(255,255,255,0.08);
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  ::selection { background: var(--accent); color: #0b0b0b; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section-pad { padding: 96px 0; }
+  @media (max-width: 640px) { .section-pad { padding: 64px 0; } }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .section-heading {
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+  }
+
+  /* ---------- NAV ---------- */
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(18,18,18,0.72);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s ease;
+  }
+  .nav-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+  }
+  .nav-links a {
+    position: relative;
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding: 6px 2px;
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-links a.active { color: var(--text-primary); }
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -6px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--accent);
+  }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    padding: 4px;
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px 20px;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    z-index: 99;
+  }
+  .mobile-menu.open { max-height: 480px; }
+  .mobile-menu a {
+    padding: 12px 4px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a.active { color: var(--accent); }
+
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .mobile-menu { display: flex; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 90px;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -10%; right: -10%;
+    width: 55%; height: 60%;
+    background: radial-gradient(circle, rgba(29,185,84,0.14) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 48px;
+    align-items: center;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero-photo-wrap { order: -1; margin: 0 auto 8px; }
+    .hero-actions, .social-row { justify-content: center; }
+  }
+
+  .hero-greet {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 15px;
+    display: inline-block;
+    margin-bottom: 14px;
+    opacity: 0;
+    animation: fadeSlideUp 0.6s ease 0.05s forwards;
+  }
+  .hero-name {
+    font-size: clamp(38px, 6.4vw, 64px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    opacity: 0;
+    animation: fadeSlideUp 0.6s ease 0.15s forwards;
+  }
+  .hero-title {
+    font-size: clamp(18px, 2.4vw, 24px);
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 14px;
+    opacity: 0;
+    animation: fadeSlideUp 0.6s ease 0.25s forwards;
+  }
+  .hero-desc {
+    margin-top: 20px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    max-width: 480px;
+    opacity: 0;
+    animation: fadeSlideUp 0.6s ease 0.35s forwards;
+  }
+  @media (max-width: 900px) { .hero-desc { max-width: 100%; margin-left:auto; margin-right:auto; } }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeSlideUp 0.6s ease 0.45s forwards;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: 999px;
+    font-size: 14.5px;
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #0b0b0b;
+  }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(29,185,84,0.3); }
+  .btn-secondary {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--text-primary);
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  .social-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 28px;
+    opacity: 0;
+    animation: fadeSlideUp 0.6s ease 0.55s forwards;
+  }
+  .social-icon {
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+  }
+  .social-icon:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .social-icon.disabled { opacity: 0.4; cursor: not-allowed; }
+  .social-icon.disabled:hover { border-color: var(--border); color: var(--text-secondary); transform: none; }
+
+  .hero-photo-wrap {
+    position: relative;
+    width: min(340px, 78vw);
+    aspect-ratio: 1;
+    margin-left: auto;
+    animation: floatY 5s ease-in-out infinite;
+    opacity: 0;
+    animation: fadeIn 0.8s ease 0.3s forwards, floatY 5s ease-in-out 1.1s infinite;
+  }
+  .hero-photo-ring {
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: conic-gradient(from 180deg, var(--accent), transparent 40%, transparent 60%, var(--accent));
+    filter: blur(0.4px);
+  }
+  .hero-photo {
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(29,185,84,0.18), inset 0 0 40px rgba(0,0,0,0.4);
+  }
+  .hero-photo-initials {
+    font-family: var(--font-display);
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--accent);
+    opacity: 0.85;
+  }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+  .scroll-cue .line {
+    width: 1px; height: 28px;
+    background: linear-gradient(var(--accent), transparent);
+    animation: scrollLine 1.8s ease-in-out infinite;
+  }
+
+  @keyframes fadeSlideUp { from { opacity:0; transform: translateY(16px);} to { opacity:1; transform: translateY(0);} }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes floatY { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-14px);} }
+  @keyframes scrollLine { 0% { transform: scaleY(0); transform-origin: top;} 50% { transform: scaleY(1); transform-origin: top;} 51% { transform-origin: bottom;} 100% { transform: scaleY(0); transform-origin: bottom;} }
+
+  /* reveal-on-scroll */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .about-text p { color: var(--text-secondary); font-size: 16px; margin-bottom: 24px; max-width: 62ch; }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag-pill {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .tag-pill:hover { border-color: var(--accent); color: var(--accent); }
+
+  .terminal {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  }
+  .terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    background: #1a1a1a;
+    border-bottom: 1px solid var(--border);
+  }
+  .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .terminal-body {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    padding: 20px;
+    color: #d6d6d6;
+    line-height: 1.9;
+  }
+  .terminal-prompt { color: var(--accent); }
+  .terminal-body .out { color: var(--text-secondary); }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 860px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .skills-grid { grid-template-columns: 1fr; } }
+
+  .skill-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .skill-card:hover { border-color: rgba(29,185,84,0.4); transform: translateY(-3px); }
+  .skill-card h4 {
+    font-size: 13px;
+    font-family: var(--font-mono);
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    color: var(--text-primary);
+    font-size: 14.5px;
+    border-top: 1px solid var(--border);
+  }
+  .skill-item:first-of-type { border-top: none; }
+  .skill-item svg { color: var(--accent); flex-shrink: 0; }
+
+  /* ---------- PROJECTS ---------- */
+  .filter-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+  .filter-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  .filter-btn:hover { color: var(--text-primary); border-color: var(--text-secondary); }
+  .filter-btn.active { background: var(--accent); color: #0b0b0b; border-color: var(--accent); }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 780px) { .featured-grid { grid-template-columns: 1fr; } }
+
+  .project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(29,185,84,0.35);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(29,185,84,0.12);
+  }
+  .project-visual {
+    height: 150px;
+    position: relative;
+    background: var(--bg-secondary);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .project-visual .glyph {
+    color: rgba(29,185,84,0.28);
+    transition: transform 0.4s ease;
+  }
+  .project-card:hover .project-visual .glyph { transform: scale(1.08) translateY(-2px); }
+  .project-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 32px);
+  }
+  .project-body { padding: 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .project-body h3 { font-size: 18px; font-weight: 600; }
+  .project-body .desc { color: var(--text-secondary); font-size: 14px; }
+  .highlight-list { display: flex; flex-direction: column; gap: 6px; margin: 4px 0; }
+  .highlight-list li { display: flex; gap: 8px; font-size: 13px; color: var(--text-secondary); }
+  .highlight-list li::before { content: '▸'; color: var(--accent); flex-shrink: 0; }
+  .tech-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .tech-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(29,185,84,0.08);
+    color: var(--accent);
+    border: 1px solid rgba(29,185,84,0.18);
+  }
+  .project-links { display: flex; gap: 10px; margin-top: auto; padding-top: 8px; }
+  .card-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500;
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+  }
+  .project-card:hover .card-link.gh { border-color: var(--accent); color: var(--accent); }
+  .card-link:hover { background: rgba(29,185,84,0.1); }
+
+  .more-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 860px) { .more-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .more-grid { grid-template-columns: 1fr; } }
+
+  .more-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .more-card:hover { transform: translateY(-4px); border-color: rgba(29,185,84,0.3); }
+  .more-card h4 { font-size: 15.5px; margin-bottom: 8px; }
+  .more-card p { font-size: 13px; color: var(--text-secondary); margin-bottom: 14px; }
+
+  .fade-out { opacity: 0; transform: scale(0.96); pointer-events: none; position: absolute; }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px; top: 6px; bottom: 6px;
+    width: 1px;
+    background: linear-gradient(var(--accent), rgba(29,185,84,0.15));
+  }
+  .timeline-item { position: relative; padding-bottom: 44px; }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-dot {
+    position: absolute;
+    left: -32px; top: 4px;
+    width: 13px; height: 13px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(29,185,84,0.15), 0 0 12px rgba(29,185,84,0.5);
+  }
+  .timeline-item h3 { font-size: 19px; font-weight: 600; }
+  .timeline-role { color: var(--accent); font-size: 14px; font-weight: 500; margin-top: 4px; font-family: var(--font-mono); }
+  .timeline-item .tag-row { margin-top: 14px; }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 860px) { .edu-grid { grid-template-columns: 1fr; } }
+  .edu-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .edu-card .deg { font-size: 16.5px; font-weight: 600; margin-bottom: 6px; }
+  .edu-card .school { color: var(--text-secondary); font-size: 14px; margin-bottom: 14px; }
+  .edu-meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-secondary); border-top: 1px solid var(--border); padding-top: 12px; font-family: var(--font-mono); }
+  .edu-meta .score { color: var(--accent); }
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 860px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .cert-grid { grid-template-columns: 1fr; } }
+  .cert-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .cert-card:hover { border-color: rgba(29,185,84,0.3); transform: translateY(-3px); }
+  .cert-icon {
+    width: 38px; height: 38px;
+    border-radius: 9px;
+    background: rgba(29,185,84,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent);
+  }
+  .cert-card p { font-size: 14px; font-weight: 500; line-height: 1.4; }
+
+  /* ---------- RESEARCH ---------- */
+  .research-card {
+    background: linear-gradient(155deg, var(--bg-card), var(--bg-secondary));
+    border: 1px solid rgba(29,185,84,0.25);
+    border-radius: 16px;
+    padding: 36px;
+    display: flex;
+    gap: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .research-card::before {
+    content: '';
+    position: absolute;
+    top: -40%; right: -10%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(29,185,84,0.16), transparent 70%);
+  }
+  @media (max-width: 640px) { .research-card { flex-direction: column; padding: 26px; } }
+  .research-icon {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    background: rgba(29,185,84,0.12);
+    border: 1px solid rgba(29,185,84,0.3);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .research-body h3 { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 14px; position: relative; }
+  .research-meta { display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--text-secondary); margin-bottom: 18px; position: relative; }
+  .research-meta strong { color: var(--text-primary); font-weight: 500; }
+  .research-card .card-link { position: relative; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+  }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; gap: 36px; } }
+  .contact-info p { color: var(--text-secondary); font-size: 16px; max-width: 42ch; margin-bottom: 32px; }
+  .contact-links { display: flex; flex-direction: column; gap: 4px; }
+  .contact-link-row {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    transition: color 0.2s ease, padding-left 0.2s ease;
+  }
+  .contact-link-row:hover { color: var(--text-primary); padding-left: 8px; }
+  .contact-link-row svg { color: var(--accent); flex-shrink: 0; }
+  .contact-link-row.disabled { opacity: 0.45; pointer-events: none; }
+
+  .form-field { margin-bottom: 18px; }
+  .form-field label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-family: var(--font-mono);
+  }
+  .form-field input, .form-field textarea {
+    width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 13px 15px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    transition: border-color 0.2s ease;
+  }
+  .form-field input:focus, .form-field textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+  }
+  .form-field textarea { resize: vertical; min-height: 120px; }
+  .form-note { font-size: 12.5px; color: var(--text-secondary); margin-top: -6px; margin-bottom: 20px; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-brand { font-family: var(--font-mono); font-size: 14px; }
+  .footer-brand .role { color: var(--text-secondary); font-size: 12.5px; margin-top: 2px; }
+  .footer-links { display: flex; gap: 20px; font-size: 13.5px; color: var(--text-secondary); }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-copy { font-size: 12.5px; color: var(--text-secondary); font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">NARE <span>USHA</span> RANI</a>
+    <div class="nav-links" id="nav-links">
+      <a href="#home" data-nav="home" class="active">Home</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#skills" data-nav="skills">Skills</a>
+      <a href="#projects" data-nav="projects">Projects</a>
+      <a href="#experience" data-nav="experience">Experience</a>
+      <a href="#education" data-nav="education">Education</a>
+      <a href="#research" data-nav="research">Research</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <i data-lucide="menu" id="menu-icon"></i>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#home" data-nav="home">Home</a>
+    <a href="#about" data-nav="about">About</a>
+    <a href="#skills" data-nav="skills">Skills</a>
+    <a href="#projects" data-nav="projects">Projects</a>
+    <a href="#experience" data-nav="experience">Experience</a>
+    <a href="#education" data-nav="education">Education</a>
+    <a href="#research" data-nav="research">Research</a>
+    <a href="#contact" data-nav="contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-greet">Hi, I'm</span>
+        <h1 class="hero-name">Nare Usha Rani</h1>
+        <p class="hero-title">Backend-Focused Developer</p>
+        <p class="hero-desc">Building real-time, scalable and database-driven applications using Java, Spring Boot and modern web technologies.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View My Projects</a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+        <div class="social-row">
+          <a href="https://github.com/usha-rani-nare" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub"><i data-lucide="github" style="width:18px;height:18px"></i></a>
+          <a href="https://www.linkedin.com/in/usha-rani-nare-394458304/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn"><i data-lucide="linkedin" style="width:18px;height:18px"></i></a>
+          <a href="mailto:usharaninare880@gmail.com" class="social-icon" aria-label="Email"><i data-lucide="mail" style="width:18px;height:18px"></i></a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-ring"></div>
+        <div class="hero-photo">
+          <img src="data:image/jpeg;base64,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" alt="Portrait of Nare Usha Rani" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>SCROLL</span><span class="line"></span></div>
+</section>
+
+<!-- ABOUT -->
+<section class="section-pad" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="eyebrow">$ cat about.md</span>
+        <h2 class="section-heading">About Me</h2>
+        <p>Backend-focused developer with hands-on experience building real-time and database-driven applications using Java, Spring Boot, and MySQL. Familiar with REST APIs, WebSocket communication, and full-stack development using modern web technologies.</p>
+        <div class="tag-row">
+          <span class="tag-pill">Backend Development</span>
+          <span class="tag-pill">Java</span>
+          <span class="tag-pill">Spring Boot</span>
+          <span class="tag-pill">REST APIs</span>
+          <span class="tag-pill">WebSocket</span>
+          <span class="tag-pill">MySQL</span>
+          <span class="tag-pill">Full-Stack Development</span>
+          <span class="tag-pill">Real-Time Applications</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="terminal-dot" style="background:#ff5f56"></span>
+            <span class="terminal-dot" style="background:#ffbd2e"></span>
+            <span class="terminal-dot" style="background:#27c93f"></span>
+          </div>
+          <div class="terminal-body">
+            <div><span class="terminal-prompt">$</span> whoami</div>
+            <div class="out">backend_developer</div>
+            <div>&nbsp;</div>
+            <div><span class="terminal-prompt">$</span> stack --list</div>
+            <div class="out">Java<br>Spring Boot<br>MySQL<br>REST APIs<br>WebSocket<br>Next.js</div>
+            <div>&nbsp;</div>
+            <div><span class="terminal-prompt">$</span> <span class="blinker">_</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section-pad" id="skills" style="background:var(--bg-secondary)">
+  <div class="container">
+    <span class="eyebrow reveal">Toolbox</span>
+    <h2 class="section-heading reveal">Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <h4>PROGRAMMING</h4>
+        <div class="skill-item"><i data-lucide="code-2" style="width:16px;height:16px"></i>Java</div>
+        <div class="skill-item"><i data-lucide="code-2" style="width:16px;height:16px"></i>Python</div>
+      </div>
+      <div class="skill-card reveal">
+        <h4>BACKEND</h4>
+        <div class="skill-item"><i data-lucide="server" style="width:16px;height:16px"></i>Spring Boot</div>
+        <div class="skill-item"><i data-lucide="server" style="width:16px;height:16px"></i>JDBC</div>
+        <div class="skill-item"><i data-lucide="server" style="width:16px;height:16px"></i>REST APIs</div>
+      </div>
+      <div class="skill-card reveal">
+        <h4>DATABASE</h4>
+        <div class="skill-item"><i data-lucide="database" style="width:16px;height:16px"></i>MySQL</div>
+      </div>
+      <div class="skill-card reveal">
+        <h4>FRONTEND</h4>
+        <div class="skill-item"><i data-lucide="layout" style="width:16px;height:16px"></i>JavaScript</div>
+        <div class="skill-item"><i data-lucide="layout" style="width:16px;height:16px"></i>Next.js</div>
+        <div class="skill-item"><i data-lucide="layout" style="width:16px;height:16px"></i>HTML</div>
+        <div class="skill-item"><i data-lucide="layout" style="width:16px;height:16px"></i>CSS</div>
+      </div>
+      <div class="skill-card reveal">
+        <h4>TOOLS</h4>
+        <div class="skill-item"><i data-lucide="git-branch" style="width:16px;height:16px"></i>Git</div>
+        <div class="skill-item"><i data-lucide="git-branch" style="width:16px;height:16px"></i>GitHub</div>
+        <div class="skill-item"><i data-lucide="git-branch" style="width:16px;height:16px"></i>Vercel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section-pad" id="projects">
+  <div class="container">
+    <span class="eyebrow reveal">Selected Work</span>
+    <h2 class="section-heading reveal">Featured Projects</h2>
+
+    <div class="filter-row reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="java">Java</button>
+      <button class="filter-btn" data-filter="backend">Backend</button>
+      <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+      <button class="filter-btn" data-filter="database">Database</button>
+      <button class="filter-btn" data-filter="ml">Machine Learning</button>
+    </div>
+
+    <div class="featured-grid" id="featured-grid">
+
+      <div class="project-card reveal" data-tags="java backend database">
+        <div class="project-visual"><i data-lucide="bot" class="glyph" style="width:56px;height:56px"></i></div>
+        <div class="project-body">
+          <h3>Insurance AI Assistant</h3>
+          <p class="desc">Spring Boot application for managing insurance users, policies, plans and claims, with an AI assistant that answers questions from policy documents using retrieval-augmented generation (RAG).</p>
+          <ul class="highlight-list">
+            <li>REST APIs for users, policies, plans and claims</li>
+            <li>LLM integration using Spring AI</li>
+            <li>RAG over policy documents with pgvector, answers cite their sources</li>
+            <li>MySQL for application data, PostgreSQL + pgvector in Docker for embeddings</li>
+            <li>Simple HTML/CSS/JS frontend</li>
+          </ul>
+          <div class="tech-badges">
+            <span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">Spring AI</span><span class="tech-badge">MySQL</span><span class="tech-badge">PostgreSQL</span><span class="tech-badge">pgvector</span><span class="tech-badge">Docker</span>
+          </div>
+          <div class="project-links">
+            <!-- Add your repo link here once it is on GitHub:
+            <a class="card-link gh" href="https://github.com/usha-rani-nare/YOUR-REPO-NAME" target="_blank" rel="noopener"><i data-lucide="github" style="width:15px;height:15px"></i>GitHub</a>
+            -->
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-tags="java backend">
+        <div class="project-visual"><i data-lucide="radio-tower" class="glyph" style="width:56px;height:56px"></i></div>
+        <div class="project-body">
+          <h3>Real-Time Notification System</h3>
+          <p class="desc">Designed and implemented bidirectional WebSocket communication using Spring Boot to enable low-latency server-to-client notification delivery without polling.</p>
+          <ul class="highlight-list">
+            <li>Bidirectional WebSocket communication</li>
+            <li>Low-latency server-to-client notifications</li>
+            <li>Layered backend architecture</li>
+            <li>Maven dependency management</li>
+          </ul>
+          <div class="tech-badges">
+            <span class="tech-badge">Java</span><span class="tech-badge">Spring Boot</span><span class="tech-badge">WebSocket</span><span class="tech-badge">Maven</span>
+          </div>
+          <div class="project-links">
+            <a class="card-link gh" href="https://github.com/usha-rani-nare/spring-boot-websocket-notification.git" target="_blank" rel="noopener"><i data-lucide="github" style="width:15px;height:15px"></i>GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-tags="fullstack">
+        <div class="project-visual"><i data-lucide="bookmark" class="glyph" style="width:56px;height:56px"></i></div>
+        <div class="project-body">
+          <h3>Smart Bookmark App</h3>
+          <p class="desc">Built a full-stack Smart Bookmark App using Next.js and Supabase with Google OAuth authentication.</p>
+          <ul class="highlight-list">
+            <li>Google OAuth authentication</li>
+            <li>User-specific private bookmarks</li>
+            <li>Row-Level Security</li>
+            <li>Real-time updates across sessions</li>
+            <li>Production deployment using Vercel</li>
+            <li>Secure environment configuration</li>
+          </ul>
+          <div class="tech-badges">
+            <span class="tech-badge">Next.js</span><span class="tech-badge">Supabase</span><span class="tech-badge">Tailwind</span><span class="tech-badge">Vercel</span>
+          </div>
+          <div class="project-links">
+            <a class="card-link gh" href="https://github.com/usha-rani-nare/smart-bookmark-app.git" target="_blank" rel="noopener"><i data-lucide="github" style="width:15px;height:15px"></i>GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-tags="java database backend">
+        <div class="project-visual"><i data-lucide="library" class="glyph" style="width:56px;height:56px"></i></div>
+        <div class="project-body">
+          <h3>Library Management System</h3>
+          <p class="desc">Backend-focused Library Management System for managing books, users and borrowing/return workflows.</p>
+          <ul class="highlight-list">
+            <li>CRUD operations</li>
+            <li>Book borrowing and return workflows</li>
+            <li>JDBC prepared statements</li>
+            <li>DAO architecture</li>
+            <li>Database persistence &amp; transaction handling</li>
+            <li>Indexed database queries</li>
+          </ul>
+          <div class="tech-badges">
+            <span class="tech-badge">Java</span><span class="tech-badge">JDBC</span><span class="tech-badge">MySQL</span>
+          </div>
+          <div class="project-links">
+            <a class="card-link gh" href="https://github.com/usha-rani-nare/Library-Management-System" target="_blank" rel="noopener"><i data-lucide="github" style="width:15px;height:15px"></i>GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-tags="java backend">
+        <div class="project-visual"><i data-lucide="lock" class="glyph" style="width:56px;height:56px"></i></div>
+        <div class="project-body">
+          <h3>Session-Based Authentication System</h3>
+          <p class="desc">Implemented a cookie-based authentication system with session persistence for controlled access to protected web pages.</p>
+          <div class="tech-badges">
+            <span class="tech-badge">Java</span><span class="tech-badge">JSP</span><span class="tech-badge">Servlets</span><span class="tech-badge">JDBC</span><span class="tech-badge">Tomcat</span><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span>
+          </div>
+          <div class="project-links">
+            <a class="card-link gh" href="https://github.com/usha-rani-nare/CookiesLogin.git" target="_blank" rel="noopener"><i data-lucide="github" style="width:15px;height:15px"></i>GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-tags="ml">
+        <div class="project-visual"><i data-lucide="line-chart" class="glyph" style="width:56px;height:56px"></i></div>
+        <div class="project-body">
+          <h3>Student Performance Prediction</h3>
+          <p class="desc">Machine learning project focused on predicting student performance.</p>
+          <div class="tech-badges">
+            <span class="tech-badge">Machine Learning</span>
+          </div>
+          <div class="project-links">
+            <a class="card-link gh" href="https://github.com/usha-rani-nare/student-performance-prediction" target="_blank" rel="noopener"><i data-lucide="github" style="width:15px;height:15px"></i>GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 style="font-size:20px;font-weight:600;margin:56px 0 24px" class="reveal">More Projects</h3>
+    <div class="more-grid" id="more-grid">
+      <div class="more-card reveal" data-tags="all">
+        <h4>Chatbot</h4>
+        <p>Additional project — see repository for implementation details.</p>
+        <a class="card-link" href="https://github.com/usha-rani-nare/Chatboot" target="_blank" rel="noopener"><i data-lucide="github" style="width:14px;height:14px"></i>GitHub</a>
+      </div>
+      <div class="more-card reveal" data-tags="database">
+        <h4>SQL Project</h4>
+        <p>Additional database/SQL project — see repository for implementation details.</p>
+        <a class="card-link" href="https://github.com/usha-rani-nare/sql-p" target="_blank" rel="noopener"><i data-lucide="github" style="width:14px;height:14px"></i>GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section-pad" id="experience" style="background:var(--bg-secondary)">
+  <div class="container">
+    <span class="eyebrow reveal">Journey</span>
+    <h2 class="section-heading reveal">Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <h3>Rooman Technologies</h3>
+        <p class="timeline-role">Full Stack Intern — 2025</p>
+        <div class="tag-row">
+          <span class="tag-pill">Java backend</span>
+          <span class="tag-pill">MySQL</span>
+          <span class="tag-pill">JDBC</span>
+          <span class="tag-pill">MVC</span>
+          <span class="tag-pill">REST APIs</span>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <h3>Brain-O-Vision</h3>
+        <p class="timeline-role">Java Full Stack Intern — 3 Months</p>
+        <div class="tag-row">
+          <span class="tag-pill">Java backend training</span>
+          <span class="tag-pill">Project development</span>
+          <span class="tag-pill">Full-stack exposure</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section-pad" id="education">
+  <div class="container">
+    <span class="eyebrow reveal">Academics</span>
+    <h2 class="section-heading reveal">Education</h2>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <p class="deg">B.Tech — Electronics and Communication Engineering</p>
+        <p class="school">Annamacharya Institute of Technology and Sciences, Kadapa</p>
+        <div class="edu-meta"><span>2021–2025</span><span class="score">CGPA 8.0</span></div>
+      </div>
+      <div class="edu-card reveal">
+        <p class="deg">Intermediate — Class XII</p>
+        <p class="school">St. Joseph Junior College, Kadapa</p>
+        <div class="edu-meta"><span>2021</span><span class="score">CGPA 8.7</span></div>
+      </div>
+      <div class="edu-card reveal">
+        <p class="deg">SSC — Class X</p>
+        <p class="school">Vishnu Vidya Mandhir High School, Kadapa</p>
+        <div class="edu-meta"><span>2019</span><span class="score">Score 9.7</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section-pad" style="background:var(--bg-secondary)">
+  <div class="container">
+    <span class="eyebrow reveal">Credentials</span>
+    <h2 class="section-heading reveal">Certifications</h2>
+    <div class="cert-grid">
+      <div class="cert-card reveal">
+        <div class="cert-icon"><i data-lucide="award" style="width:20px;height:20px"></i></div>
+        <p>Google Cloud Foundation</p>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><i data-lucide="award" style="width:20px;height:20px"></i></div>
+        <p>NPTEL — IoT</p>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><i data-lucide="award" style="width:20px;height:20px"></i></div>
+        <p>edX — Machine Learning</p>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><i data-lucide="award" style="width:20px;height:20px"></i></div>
+        <p>PMKVY / Rooman Technologies — Full Stack</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="section-pad" id="research">
+  <div class="container">
+    <span class="eyebrow reveal">Publication</span>
+    <h2 class="section-heading reveal">Research &amp; Publication</h2>
+    <div class="research-card reveal">
+      <div class="research-icon"><i data-lucide="file-text" style="width:24px;height:24px"></i></div>
+      <div class="research-body">
+        <h3>IoT Based Remote Health Monitoring System Enhancing Two Way Communication</h3>
+        <div class="research-meta">
+          <span><strong>Journal:</strong> Journal on Electronic and Automation Engineering (REST Publisher)</span>
+          <span><strong>Volume:</strong> Vol 4(2), June 2025</span>
+          <span><strong>DOI:</strong> 10.46632/jeae/4/2/5</span>
+        </div>
+        <a class="card-link gh" href="https://doi.org/10.46632/jeae/4/2/5" target="_blank" rel="noopener"><i data-lucide="external-link" style="width:15px;height:15px"></i>View Publication</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section-pad" id="contact" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Get In Touch</span>
+        <h2 class="section-heading">Let's Build Something Great</h2>
+        <p>I'm always interested in learning, building meaningful applications and connecting with people in technology.</p>
+        <div class="contact-links">
+          <a class="contact-link-row" href="mailto:usharaninare880@gmail.com"><i data-lucide="mail" style="width:18px;height:18px"></i>usharaninare880@gmail.com</a>
+          <a class="contact-link-row" href="https://github.com/usha-rani-nare" target="_blank" rel="noopener"><i data-lucide="github" style="width:18px;height:18px"></i>github.com/usha-rani-nare</a>
+          <a class="contact-link-row" href="https://www.linkedin.com/in/usha-rani-nare-394458304/" target="_blank" rel="noopener"><i data-lucide="linkedin" style="width:18px;height:18px"></i>linkedin.com/in/usha-rani-nare</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <form id="contact-form" action="https://formspree.io/f/xbglqkkn" method="POST">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <p class="form-note" id="form-note">Messages are sent directly to my inbox.</p>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center" id="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        NARE USHA RANI
+        <div class="role">Backend-Focused Developer</div>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/usha-rani-nare" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/usha-rani-nare-394458304/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:usharaninare880@gmail.com">Email</a>
+      </div>
+      <div class="footer-copy">© 2026 Nare Usha Rani</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function safeCreateIcons() {
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }
+  safeCreateIcons();
+
+  // Mobile menu
+  const navToggle = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  navToggle.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+    menuIcon.setAttribute('data-lucide', open ? 'x' : 'menu');
+    safeCreateIcons();
+  });
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuIcon.setAttribute('data-lucide', 'menu');
+      safeCreateIcons();
+    });
+  });
+
+  // Scroll-spy nav
+  const sections = ['home','about','skills','projects','experience','education','research','contact']
+    .map(id => document.getElementById(id)).filter(Boolean);
+  const navAnchors = document.querySelectorAll('[data-nav]');
+
+  function setActive(id) {
+    navAnchors.forEach(a => a.classList.toggle('active', a.dataset.nav === id));
+  }
+
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => spyObserver.observe(s));
+
+  // Reveal on scroll
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Project filtering
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const allCards = document.querySelectorAll('#featured-grid .project-card, #more-grid .more-card');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      allCards.forEach(card => {
+        const tags = card.dataset.tags || '';
+        const show = f === 'all' || tags.split(' ').includes(f) || tags === 'all';
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  // Contact form -> Formspree (AJAX, stays on page)
+  const contactForm = document.getElementById('contact-form');
+  const formNote = document.getElementById('form-note');
+  const submitBtn = document.getElementById('submit-btn');
+  contactForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        formNote.textContent = "Thanks! Your message has been sent — I'll get back to you soon.";
+        contactForm.reset();
+      } else {
+        formNote.textContent = "Something went wrong. Please email me directly at usharaninare880@gmail.com.";
+      }
+    } catch (err) {
+      formNote.textContent = "Something went wrong. Please email me directly at usharaninare880@gmail.com.";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+</script>
+
+</body>
+</html>
